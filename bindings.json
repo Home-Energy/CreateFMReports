@@ -1,0 +1,53 @@
+{
+  "version": "1.0",
+  "resources": [
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "Config(\"OrangeBotQueue\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "Config(\"BlueBotQueue\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "queue",
+      "metadata": {
+        "name": {
+          "defaultValue": "Config(\"NotesQueue\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      }
+    },
+    {
+      "resource": "asset",
+      "metadata": {
+        "name": {
+          "defaultValue": "in_Config(\"FMPassword\").ToString",
+          "isExpression": false
+        },
+        "folderPath": {
+          "isExpression": true
+        }
+      }
+    }
+  ]
+}
