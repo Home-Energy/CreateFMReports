@@ -1,0 +1,131 @@
+Selectors:
+Import Invoice
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3427' aastate='focusable' role='push button' text='Import Invoice' />
+
+Import Pictures:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3432' aastate='focusable' role='push button' name='Import Pictures' />
+
+Import Notes:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3437' aastate='focusable' role='push button' text='Import Notes' />
+
+Export Invoices:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3442' role='push button' text='Export Invoice' aastate='focusable' />
+
+Export Pictures:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3447' aastate='focusable' role='push button' text='Export Pictures' />
+
+Export Notes:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3452' aastate='focusable' role='push button' text='Export Notes' />
+
+Insert File:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<wnd aaname='Content Area' cls='Afx:*' />
+<ctrl automationid='View: 1' />
+<ctrl automationid='Button: 3457' aastate='focusable' role='push button' text='Insert File' />
+
+Main Window:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+
+Warning Window:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Warning' aaname='Warning' />
+
+Warning message:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Warning' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_MESSAGE' text='Please insert a file in the container' />
+
+Error Window:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Error' />
+
+
+
+Error Message:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Error' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_MESSAGE' text='Couldn&apos;t find any invoices to update with the input file, please verify the file or contact the admins' />
+
+Error Ok:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Error' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' role='push button' text='OK' />
+
+Main window Close:
+<wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
+<ctrl name='Close' role='push button' text='Close' />
+
+
+Password Textbox:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Attention' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_EDIT1' aastate='focusable' role='editable text' />
+
+
+Password OK button:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Attention' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' text='OK' />
+
+Insert FileName:
+<wnd app='filemaker pro.exe' cls='#32770' title='Insert File' />
+<wnd ctrlid='1148' />
+<wnd ctrlid='1148' />
+<wnd ctrlid='1148' aaname='File name:' aastate='focusable' cls='Edit' />
+
+Insert Open Button:
+<wnd app='filemaker pro.exe' cls='#32770' title='Insert File' />
+<wnd ctrlid='1' title='Open' aastate='focusable' cls='Button' />
+
+File Not found error popup ok button:
+<wnd app='filemaker pro.exe' cls='#32770' title='Insert File' />
+<wnd aaname='Insert File' cls='DirectUIHWND' />
+<wnd cls='Button' title='OK' aaname='OK' />
+
+Insert File Cancel Button:
+<wnd app='filemaker pro.exe' cls='#32770' title='Insert File' />
+<wnd ctrlid='2' title='Cancel' aastate='focusable' cls='Button' />
+
+
+Export File Name:
+<wnd app='filemaker pro.exe' cls='#32770' title='Export Field to File' />
+<wnd ctrlid='1148' />
+<wnd ctrlid='1148' />
+<wnd ctrlid='1148' aaname='File name:' aastate='focusable' cls='Edit' />
+
+Export Save button:
+<wnd app='filemaker pro.exe' cls='#32770' title='Export Field to File' />
+<wnd ctrlid='1' title='&amp;Save' aaname='Save' aastate='focusable' cls='Button' />
+
+Export File Cancel:
+<wnd app='filemaker pro.exe' cls='#32770' title='Export Field to File' />
+<wnd ctrlid='2' title='Cancel' aastate='focusable' cls='Button' />
+
+
+Exporting wait window:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Export' aastate='moveable, focusable' />
+
+Success Ok Button:
+<wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' />
+<ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' />
+
+
+
+
+
+
+
+
+
+
