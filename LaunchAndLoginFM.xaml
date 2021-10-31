@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1238,1933</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1238,1971</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>LaunchAndLOginFM_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="56">
@@ -67,20 +67,19 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="LaunchAndLoginFM" sap:VirtualizedContainerService.HintSize="1248,1868" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="LaunchAndLoginFM" sap:VirtualizedContainerService.HintSize="1248,1906" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1206,1776" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1206,1814" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="1168,1544" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="1168,1582" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="ElementExists" />
           </Sequence.Variables>
@@ -99,9 +98,9 @@
               </ui:Target>
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[ElementExists]" sap:VirtualizedContainerService.HintSize="1126,1179" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[ElementExists]" sap:VirtualizedContainerService.HintSize="1126,1217" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="839,1019" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence sap:VirtualizedContainerService.HintSize="839,1057" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="ss:SecureString" Name="Password" />
                   <Variable x:TypeArguments="x:String" Name="Username" />
@@ -121,7 +120,7 @@
                     </ui:Target>
                   </ui:TypeSecureText.Target>
                 </ui:TypeSecureText>
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="797,68" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click OK" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -133,7 +132,7 @@
                     </ui:CursorPosition>
                   </ui:Click.CursorPosition>
                   <ui:Click.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a0d8d20-2983-4d54-bc2e-f3f11e292add" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Attention' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' text='OK' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1a0d8d20-2983-4d54-bc2e-f3f11e292add" InformativeScreenshot="6260fac6cc18f1f099fef0c24a766b92" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Attention' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' text='OK' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
                         <InArgument x:TypeArguments="x:Int32" />
                       </ui:Target.TimeoutMS>

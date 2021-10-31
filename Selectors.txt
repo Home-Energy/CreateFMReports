@@ -21,13 +21,13 @@ Export Invoices:
 <wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
 <wnd aaname='Content Area' cls='Afx:*' />
 <ctrl automationid='View: 1' />
-<ctrl automationid='Button: 3442' role='push button' text='Export Invoice' aastate='focusable' />
+<ctrl  role='push button' text='Export Invoice' aastate='focusable' />
 
 Export Pictures:
 <wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />
 <wnd aaname='Content Area' cls='Afx:*' />
 <ctrl automationid='View: 1' />
-<ctrl automationid='Button: 3447' aastate='focusable' role='push button' text='Export Pictures' />
+<ctrl aastate='focusable' role='push button' text='Export Pictures' />
 
 Export Notes:
 <wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' />

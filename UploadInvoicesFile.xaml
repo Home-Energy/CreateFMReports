@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1155,1457</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>951,1571</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>UploadInvoicesFile_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -71,15 +71,15 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="UploadInvoicesFile" sap:VirtualizedContainerService.HintSize="961,1392" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="UploadInvoicesFile" sap:VirtualizedContainerService.HintSize="961,1506" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="919,1300" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="919,1414" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="881,1068" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="881,1182" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Boolean" Name="ElementExists" />
           </Sequence.Variables>
@@ -93,7 +93,7 @@
               <InArgument x:TypeArguments="x:String" x:Key="in_FullFileName">[in_InvoiceFileName]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Import Invoice" sap:VirtualizedContainerService.HintSize="839,68" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Import Invoice" sap:VirtualizedContainerService.HintSize="839,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
             <ui:Click.CursorPosition>
               <ui:CursorPosition Position="Center">
                 <ui:CursorPosition.OffsetX>
@@ -105,23 +105,23 @@
               </ui:CursorPosition>
             </ui:Click.CursorPosition>
             <ui:Click.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" Selector="&lt;wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' /&gt;&lt;wnd aaname='Content Area' cls='Afx:*' /&gt;&lt;ctrl automationid='View: 1' /&gt;&lt;ctrl aastate='focusable' role='push button' text='Import Invoice' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" InformativeScreenshot="fec28597a01128eaa45ad7a38ffae689" Selector="&lt;wnd app='filemaker pro.exe' cls='FMPRO*APP' title='BOT LAYOUT' /&gt;&lt;wnd aaname='Content Area' cls='Afx:*' /&gt;&lt;ctrl automationid='View: 1' /&gt;&lt;ctrl aastate='focusable' role='push button' text='Import Invoice' /&gt;" WaitForReady="COMPLETE">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
               </ui:Target>
             </ui:Click.Target>
           </ui:Click>
-          <ui:UiElementExists DisplayName="Success popup Exists" Exists="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,68" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+          <ui:UiElementExists DisplayName="Success popup Exists" Exists="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2824551f-2714-422f-a157-1fbc3d34e476" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2824551f-2714-422f-a157-1fbc3d34e476" InformativeScreenshot="b2df9f559e965e2d8f96cfaef99a86f8" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" WaitForReady="COMPLETE">
                 <ui:Target.TimeoutMS>
                   <InArgument x:TypeArguments="x:Int32" />
                 </ui:Target.TimeoutMS>
               </ui:Target>
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
-          <If Condition="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,607" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,645" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -129,14 +129,14 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="376,293" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence sap:VirtualizedContainerService.HintSize="376,331" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invoice report uploaded succewsfully.&quot;]" />
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Invoice report uploaded succesfully.&quot;]" />
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -148,7 +148,7 @@
                     </ui:CursorPosition>
                   </ui:Click.CursorPosition>
                   <ui:Click.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" InformativeScreenshot="2bff600eb960a56f8331b93d292322cd" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" WaitForReady="COMPLETE">
                       <ui:Target.TimeoutMS>
                         <InArgument x:TypeArguments="x:Int32" />
                       </ui:Target.TimeoutMS>
@@ -158,20 +158,20 @@
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="418,447" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence sap:VirtualizedContainerService.HintSize="418,485" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,355" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="376,393" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Error occured while importing the invoices report.&quot;]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -183,7 +183,7 @@
                       </ui:CursorPosition>
                     </ui:Click.CursorPosition>
                     <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Error' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' role='push button' text='OK' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b42b777b-e4f8-42c2-8f95-c15832e2f893" InformativeScreenshot="eaad1e90625dacfbc7cc791e880385bf" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Error' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' role='push button' text='OK' /&gt;" WaitForReady="COMPLETE">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
