@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1000,6304.5</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1155,7377.5</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateDailyOrangeReport_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -46,7 +46,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="52">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,9 +73,10 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CreateInvoicesReport" sap:VirtualizedContainerService.HintSize="1010,6239.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CreateInvoicesReport" sap:VirtualizedContainerService.HintSize="1013,7312.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dtInvoices" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtPictures" />
@@ -95,7 +96,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap:VirtualizedContainerService.HintSize="968,6147.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap:VirtualizedContainerService.HintSize="971,7220.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="BlueInvoicesPath" />
         <Variable x:TypeArguments="x:String" Name="OrangeInvoicesPath" />
@@ -110,13 +111,13 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Flowchart DisplayName="GetOrangeInvoices" sap:VirtualizedContainerService.HintSize="926,52" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+      <Flowchart DisplayName="GetOrangeInvoices" sap:VirtualizedContainerService.HintSize="929,1125" sap2010:WorkflowViewState.IdRef="Flowchart_1">
         <Flowchart.Variables>
           <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="FailedQueuItems" />
         </Flowchart.Variables>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <av:Point x:Key="ShapeLocation">160,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">190,77.5 190,94 280,94 280,34 410,34 410,64</av:PointCollection>
@@ -136,7 +137,7 @@
               <av:PointCollection x:Key="ConnectorLocation">380,386 380,416 400,416 400,436.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-1)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_2" QueueItemStates="Successful" QueueName="[Config(&quot;OrangeBotQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
+          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-3)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_2" QueueItemStates="Successful" QueueName="[Config(&quot;OrangeBotQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,10 +278,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:GetQueueItems>
                           <FlowStep.Next>
-                            <FlowDecision x:Name="__ReferenceID11" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
-                              <FlowDecision.Condition>
-                                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="FailedQueuItems.Count&gt;0" />
-                              </FlowDecision.Condition>
+                            <FlowDecision x:Name="__ReferenceID11" Condition="[FailedQueuItems.Count&gt;0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -429,7 +427,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">440,276 440,306 380,306 380,334</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:BuildDataTable DataTable="[dtFailedInvoices]" DisplayName="Build  Failed Invoices Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_7" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;10000000&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+                  <ui:BuildDataTable DataTable="[dtFailedInvoices]" DisplayName="Build  Failed Invoices Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_7" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10000000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -454,7 +452,7 @@
         <x:Reference>__ReferenceID11</x:Reference>
         <x:Reference>__ReferenceID12</x:Reference>
       </Flowchart>
-      <Assign sap:VirtualizedContainerService.HintSize="926,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign sap:VirtualizedContainerService.HintSize="929,60" sap2010:WorkflowViewState.IdRef="Assign_7">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[SkipCount]</OutArgument>
         </Assign.To>
@@ -462,7 +460,7 @@
           <InArgument x:TypeArguments="x:Int32">0</InArgument>
         </Assign.Value>
       </Assign>
-      <Flowchart DisplayName="GetBlueInvoicesPictures" sap:VirtualizedContainerService.HintSize="926,1313.5" sap2010:WorkflowViewState.IdRef="Flowchart_2">
+      <Flowchart DisplayName="GetBlueInvoicesPictures" sap:VirtualizedContainerService.HintSize="929,1313.5" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <Flowchart.Variables>
           <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="BlueFailedQueueItems" />
         </Flowchart.Variables>
@@ -488,7 +486,7 @@
               <av:PointCollection x:Key="ConnectorLocation">280,366 280,384</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-1)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_3" QueueItemStates="Successful" QueueName="[Config(&quot;BlueBotQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
+          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-3)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_3" QueueItemStates="Successful" QueueName="[Config(&quot;BlueBotQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -962,10 +960,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:GetQueueItems>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID24" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
-                                  <FlowDecision.Condition>
-                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="BlueFailedQueueItems.Count&gt;0" />
-                                  </FlowDecision.Condition>
+                                <FlowDecision x:Name="__ReferenceID24" Condition="[BlueFailedQueueItems.Count&gt;0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1087,7 +1082,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">280,286 280,314</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:BuildDataTable DataTable="[dtFailedPics]" DisplayName="Build Failed Pictures Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_8" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;File_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;10000&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+              <ui:BuildDataTable DataTable="[dtFailedPics]" DisplayName="Build Failed Pictures Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_8" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;File_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;10000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1129,7 +1124,7 @@
         <x:Reference>__ReferenceID26</x:Reference>
         <x:Reference>__ReferenceID27</x:Reference>
       </Flowchart>
-      <Assign sap:VirtualizedContainerService.HintSize="926,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign sap:VirtualizedContainerService.HintSize="929,60" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[SkipCount]</OutArgument>
         </Assign.To>
@@ -1137,7 +1132,7 @@
           <InArgument x:TypeArguments="x:Int32">0</InArgument>
         </Assign.Value>
       </Assign>
-      <Flowchart DisplayName="GetNotesList" sap:VirtualizedContainerService.HintSize="926,1076" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+      <Flowchart DisplayName="GetNotesList" sap:VirtualizedContainerService.HintSize="929,1076" sap2010:WorkflowViewState.IdRef="Flowchart_3">
         <Flowchart.Variables>
           <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="QueFailedNotesueItems" />
           <Variable x:TypeArguments="scg:IEnumerable(ui:QueueItem)" Name="FailedNotesQueueItems" />
@@ -1164,7 +1159,7 @@
               <av:PointCollection x:Key="ConnectorLocation">240,276 240,306 150,306 150,314</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-2)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_4" QueueItemStates="Successful" QueueName="[Config(&quot;NotesQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
+          <ui:GetQueueItems Duration="{x:Null}" Priority="{x:Null}" Reference="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" DisplayName="Get Queue Items" FilterStrategy="StartsWith" From="[Today.AddDays(-3)]" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="GetQueueItems_4" QueueItemStates="Successful" QueueName="[Config(&quot;NotesQueue&quot;).ToString]" Result="[QueueItems]" Skip="[SkipCount]" To="[Today.AddDays(1)]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1385,10 +1380,7 @@
                                 </sap:WorkflowViewStateService.ViewState>
                               </ui:GetQueueItems>
                               <FlowStep.Next>
-                                <FlowDecision x:Name="__ReferenceID37" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
-                                  <FlowDecision.Condition>
-                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="FailedNotesQueueItems.Count&gt;0" />
-                                  </FlowDecision.Condition>
+                                <FlowDecision x:Name="__ReferenceID37" Condition="[FailedNotesQueueItems.Count&gt;0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79.5,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1523,7 +1515,7 @@
                   <av:PointCollection x:Key="ConnectorLocation">260,216 240,216 240,224</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:BuildDataTable DataTable="[dtFailedNotes]" DisplayName="Build  notes Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_9" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:Caption=&quot;&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Notes_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+              <ui:BuildDataTable DataTable="[dtFailedNotes]" DisplayName="Build  notes Data Table" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="BuildDataTable_9" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Partner_x0020_Job_x0020_Code&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ID&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Notes_x0020_Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TimeStamp&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Comments&quot; msdata:Caption=&quot;&quot; default=&quot;1&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;1000000&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1546,7 +1538,7 @@
         <x:Reference>__ReferenceID40</x:Reference>
         <x:Reference>__ReferenceID41</x:Reference>
       </Flowchart>
-      <Assign sap:VirtualizedContainerService.HintSize="926,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign sap:VirtualizedContainerService.HintSize="929,60" sap2010:WorkflowViewState.IdRef="Assign_13">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[InvoicesPath]</OutArgument>
         </Assign.To>
@@ -1554,7 +1546,7 @@
           <InArgument x:TypeArguments="x:String">[Config("InvoicesReportPath").ToString.Replace("{DATE}",Today.ToString("MM-dd-yyyy")).Replace("{USERNAME}",Environment.UserName)]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="926,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign sap:VirtualizedContainerService.HintSize="929,60" sap2010:WorkflowViewState.IdRef="Assign_11">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[BluePicturesPath]</OutArgument>
         </Assign.To>
@@ -1562,7 +1554,7 @@
           <InArgument x:TypeArguments="x:String">[Config("BluePicturesReportPath").ToString.Replace("{DATE}",Today.ToString("MM-dd-yyyy")).Replace("{USERNAME}",Environment.UserName)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:PathExists DisplayName="InvoicesFileExisits" Exists="[FileExists]" sap:VirtualizedContainerService.HintSize="926,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[InvoicesPath]" PathType="File">
+      <ui:PathExists DisplayName="InvoicesFileExisits" Exists="[FileExists]" sap:VirtualizedContainerService.HintSize="929,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[InvoicesPath]" PathType="File">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1570,7 +1562,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:PathExists>
-      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="926,52" sap2010:WorkflowViewState.IdRef="If_8">
+      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="929,52" sap2010:WorkflowViewState.IdRef="If_8">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1598,7 +1590,7 @@
           </Sequence>
         </If.Else>
       </If>
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtInvoices]" Delimitator="Comma" DisplayName="Write Invoices" FilePath="[InvoicesPath]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_5">
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtInvoices]" Delimitator="Comma" DisplayName="Write Invoices" FilePath="[InvoicesPath]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1606,8 +1598,8 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:WriteCsvFile>
-      <ui:PathExists Exists="{x:Null}" DisplayName="Pics File Exists" sap:VirtualizedContainerService.HintSize="926,90" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[BluePicturesPath]" PathType="File" />
-      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="926,52" sap2010:WorkflowViewState.IdRef="If_9">
+      <ui:PathExists Exists="{x:Null}" DisplayName="Pics File Exists" sap:VirtualizedContainerService.HintSize="929,90" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[BluePicturesPath]" PathType="File" />
+      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="929,52" sap2010:WorkflowViewState.IdRef="If_9">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -1635,8 +1627,8 @@
           </Sequence>
         </If.Else>
       </If>
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtPictures]" Delimitator="Comma" DisplayName="Write Blue Pics" FilePath="[BluePicturesPath]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" />
-      <Assign sap:VirtualizedContainerService.HintSize="926,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtPictures]" Delimitator="Comma" DisplayName="Write Blue Pics" FilePath="[BluePicturesPath]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_2" />
+      <Assign sap:VirtualizedContainerService.HintSize="929,60" sap2010:WorkflowViewState.IdRef="Assign_12">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[NotesPath]</OutArgument>
         </Assign.To>
@@ -1644,8 +1636,8 @@
           <InArgument x:TypeArguments="x:String">[Config("NotesReportPath").ToString.Replace("{DATE}",Today.ToString("MM-dd-yyyy")).Replace("{USERNAME}",Environment.UserName)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:PathExists Exists="{x:Null}" DisplayName="Notes File Exists" sap:VirtualizedContainerService.HintSize="926,90" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[NotesPath]" PathType="File" />
-      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="926,485" sap2010:WorkflowViewState.IdRef="If_10">
+      <ui:PathExists Exists="{x:Null}" DisplayName="Notes File Exists" sap:VirtualizedContainerService.HintSize="929,90" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[NotesPath]" PathType="File" />
+      <If Condition="[FileExists]" sap:VirtualizedContainerService.HintSize="929,485" sap2010:WorkflowViewState.IdRef="If_10">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1673,31 +1665,31 @@
           </Sequence>
         </If.Else>
       </If>
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtNotes]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[NotesPath]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3" />
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedInvoices]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedInvoicesReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_6" />
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedPics]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedPicsReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_7" />
-      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedNotes]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedNotesReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="926,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_8" />
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaunchAndLOginFM workflow" sap:VirtualizedContainerService.HintSize="926,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="LaunchAndLOginFM.xaml">
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtNotes]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[NotesPath]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_3" />
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedInvoices]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedInvoicesReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_6" />
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedPics]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedPicsReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_7" />
+      <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[dtFailedNotes]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[Config(&quot;FailedNotesReportPath&quot;).ToString.Replace(&quot;{DATE}&quot;,Today.ToString(&quot;MM-dd-yyyy&quot;)).Replace(&quot;{USERNAME}&quot;,Environment.UserName)]" sap:VirtualizedContainerService.HintSize="929,155" sap2010:WorkflowViewState.IdRef="WriteCsvFile_8" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke LaunchAndLOginFM workflow" sap:VirtualizedContainerService.HintSize="929,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="LaunchAndLOginFM.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadInvoicesFile workflow" sap:VirtualizedContainerService.HintSize="926,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UploadInvoicesFile.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadInvoicesFile workflow" sap:VirtualizedContainerService.HintSize="929,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="UploadInvoicesFile.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFileName">[InvoicesPath]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadPicsFile workflow" sap:VirtualizedContainerService.HintSize="926,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="UploadPicsFile.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadPicsFile workflow" sap:VirtualizedContainerService.HintSize="929,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="UploadPicsFile.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFileName">[BluePicturesPath]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadNotesFile workflow" sap:VirtualizedContainerService.HintSize="926,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="UploadNotesFile.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke UploadNotesFile workflow" sap:VirtualizedContainerService.HintSize="929,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="UploadNotesFile.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="x:String" x:Key="in_InvoiceFileName">[NotesPath]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseFM workflow" sap:VirtualizedContainerService.HintSize="926,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CloseFM.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseFM workflow" sap:VirtualizedContainerService.HintSize="929,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CloseFM.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <scg:Dictionary x:TypeArguments="x:String, Argument" />
         </ui:InvokeWorkflowFile.Arguments>

@@ -113,11 +113,7 @@
           </ui:Click>
           <ui:UiElementExists DisplayName="Success popup Exists" Exists="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
             <ui:UiElementExists.Target>
-              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2824551f-2714-422f-a157-1fbc3d34e476" InformativeScreenshot="12d94945242a381005b15beb86d6f3c6" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" WaitForReady="COMPLETE">
-                <ui:Target.TimeoutMS>
-                  <InArgument x:TypeArguments="x:Int32" />
-                </ui:Target.TimeoutMS>
-              </ui:Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2824551f-2714-422f-a157-1fbc3d34e476" InformativeScreenshot="12d94945242a381005b15beb86d6f3c6" Selector="&lt;wnd app='filemaker pro.exe' cls='HwndWrapper*' title='Success' /&gt;&lt;ctrl automationid='IDC_SHOW_CUSTOM_MESSAGE_BUTTON1' /&gt;" TimeoutMS="600000" WaitForReady="COMPLETE" />
             </ui:UiElementExists.Target>
           </ui:UiElementExists>
           <If Condition="[ElementExists]" sap:VirtualizedContainerService.HintSize="839,645" sap2010:WorkflowViewState.IdRef="If_2">
@@ -135,7 +131,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Pics report uploaded succesfully.&quot;]" />
-                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                   <ui:Click.CursorPosition>
                     <ui:CursorPosition Position="Center">
                       <ui:CursorPosition.OffsetX>
@@ -170,7 +166,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Error occured while importing the pics report.&quot;]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Ok" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -208,7 +204,19 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Throw Exception="[New Exception(&quot;Exception occured while uploading the pictures report. Exception message - &quot;+exception.Message)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            <Sequence sap:VirtualizedContainerService.HintSize="376,267" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CloseFM workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="CloseFM.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                </ui:InvokeWorkflowFile.Arguments>
+              </ui:InvokeWorkflowFile>
+              <Throw Exception="[New Exception(&quot;Exception occured while uploading the pictures report. Exception message - &quot;+exception.Message)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
